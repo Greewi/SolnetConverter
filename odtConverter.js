@@ -79,8 +79,12 @@ exports.ODTConverter = class {
                 case "p" :
                     if(node.hasAttribute("class") && node.getAttribute("class")=="corps-de-liste-western")
                         return `    <li>${this._convertInternalNode(node, rootLevel)}</li>\n`;
+                    if(node.hasAttribute("class") && node.getAttribute("class")=="corps-de-liste")
+                        return `    <li>${this._convertInternalNode(node, rootLevel)}</li>\n`;
                     if(node.hasAttribute("class") && node.getAttribute("class")=="corps-de-citation-western")
-                        return `<blockquote>${this._convertInternalNode(node, rootLevel)}</blockquote>\n`;                
+                        return `<blockquote>${this._convertInternalNode(node, rootLevel)}</blockquote>\n`;   
+                    if(node.hasAttribute("class") && node.getAttribute("class")=="corps-de-citation")
+                        return `<blockquote>${this._convertInternalNode(node, rootLevel)}</blockquote>\n`;                 
                     return `<p>${this._convertInternalNode(node, rootLevel)}</p>\n`
                 case "br" :
                     return "<br/>\n";
@@ -95,9 +99,9 @@ exports.ODTConverter = class {
                         return "";
                     return this._convertInternalNode(node, rootLevel);
                 case "table" :
-                    return `<table>${this._convertInternalNode(node, rootLevel)}</table>\n`
+                    return `<div class="table__conteneur">\n<table>\n${this._convertInternalNode(node, rootLevel)}</table>\n</div>\n`
                 case "tr" :
-                    return `\t<tr>${this._convertInternalNode(node, rootLevel)}</tr>\n`
+                    return `\t<tr>\n${this._convertInternalNode(node, rootLevel)}\t</tr>\n`
                 case "th" :
                     return `\t\t<th>${this._convertInternalNode(node, rootLevel)}</th>\n`
                 case "td" :
@@ -119,7 +123,7 @@ exports.ODTConverter = class {
         }
         else if(node.nodeType==3)//TEXTE_NODE
         {
-            return node.nodeValue.replace(/(\n|\r| |\t)+/gi, " ").trim();
+            return node.nodeValue.replace(/(\n|\r| |\t)+/gi, " ");
         }
     }
 
@@ -131,6 +135,8 @@ exports.ODTConverter = class {
 
     static _deleteEmptyTag(html){
         return html
-        .replace(/<p><\/p>\n?/gi, "");
+        .replace(/<p><\/p>\n?/gi, "")
+        .replace(/(<td>|<th>)<p>/gi, "$1")
+        .replace(/<\/p>[\s]*(<\/td>|<\/th>)/gi, "$1");
     }
 }

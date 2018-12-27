@@ -6,7 +6,10 @@ for(let id in config.sources)
     pages.push(id);
 
 let promise = Promise.resolve();
-for(let i=19; i<pages.length; i++)
+
+//pages = ["resolutionActions"];
+
+for(let i=0; i<pages.length; i++)
 {
     let id = pages[i];
     promise = promise.then(()=>{
