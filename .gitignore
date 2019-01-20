@@ -12,3 +12,9 @@ package-lock\.json
 tmp\.html
 
 node_modules/
+
+outputHTML/
+
+outputEbook/
+
+srcHTML/

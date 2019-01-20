@@ -1,5 +1,5 @@
 const { spawn } = require('child_process');
-const config = require('./config.json')
+const config = require('../config.json')
 
 exports.LOfficeCLI = class {
     static convertOdtToHtml(inputFile, outputDir){

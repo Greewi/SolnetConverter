@@ -2,7 +2,7 @@ const { LOfficeCLI } = require("./lofficeCLI");
 const fs = require('fs');
 var parser = new (require('xmldom').DOMParser)();
 
-exports.ODTConverter = class {
+exports.ODT2HTML = class {
 
     /**
      * 
@@ -10,7 +10,7 @@ exports.ODTConverter = class {
      * @param {*} outputDir 
      * @returns {Promise}
      */
-    static convertODT(odtFile, outputFile){
+    static convert(odtFile, outputFile){
         let outdir = ".";
         let htmlFile = odtFile.replace(".odt", ".html").replace(/.*(\\|\/)([^\\\/]*)$/, "./$2");
         let tmpFile = "./tmp.html";
