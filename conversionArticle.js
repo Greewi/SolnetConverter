@@ -11,7 +11,7 @@ for(let id in config.sources)
 let promise = Promise.resolve();
 
 // Génération des fichiers HTML à partir des sources ODT
-for(let i=0; i<articles.length; i++)
+for(let i=60; i<articles.length; i++)
 {
     let id = articles[i];
     promise = promise.then(()=>{
@@ -24,8 +24,25 @@ for(let i=0; i<articles.length; i++)
     });
 }
 
-// Génération du livre de base
-promise.then(()=>{
-    HTML2EBOOK.convert(config.book, "srcHTML/ebookHeader.html", "srcHTML/ebookFooter.html", "outputEbook/Solaires.mobi", "outputEbook/Solaires.epub", "outputEbook/Solaires.pdf");
+// Génération du livre de base et des livrets des chapitres
+promise
+.then(()=>{
+    return HTML2EBOOK.convert(config.book, "srcHTML/ebookHeader.html", "srcHTML/ebookFooter.html", "outputEbook/Solaires.mobi", "outputEbook/Solaires.epub", "outputEbook/Solaires.pdf");
+})
+.then(()=>{
+    return HTML2EBOOK.convert(config.bookRegles, "srcHTML/ebookHeaderRegles.html", "srcHTML/ebookFooter.html", "outputEbook/Solaires - 1 - Jouer à Solaires.mobi", "outputEbook/Solaires - 1 - Jouer à Solaires.epub", "outputEbook/Solaires - 1 - Jouer à Solaires.pdf");
+})
+.then(()=>{
+    return HTML2EBOOK.convert(config.bookPersonnages, "srcHTML/ebookHeaderPersonnages.html", "srcHTML/ebookFooter.html", "outputEbook/Solaires - 2 - Les Personnages.mobi", "outputEbook/Solaires - 2 - Les Personnages.epub", "outputEbook/Solaires - 2 - Les Personnages.pdf");
+})
+.then(()=>{
+    return HTML2EBOOK.convert(config.bookContexte, "srcHTML/ebookHeaderContexte.html", "srcHTML/ebookFooter.html", "outputEbook/Solaires - 3 - Le contexte.mobi", "outputEbook/Solaires - 3 - Le contexte.epub", "outputEbook/Solaires - 3 - Le contexte.pdf");
+})
+.then(()=>{
+    return HTML2EBOOK.convert(config.bookModeDeVie, "srcHTML/ebookHeaderVieSolaires.html", "srcHTML/ebookFooter.html", "outputEbook/Solaires - 4 - Vies de solaires.mobi", "outputEbook/Solaires - 4 - Vies de solaires.epub", "outputEbook/Solaires - 4 - Vies de solaires.pdf");
+})
+.then(()=>{
+    return HTML2EBOOK.convert(config.bookCatalogue, "srcHTML/ebookHeaderCatalogue.html", "srcHTML/ebookFooter.html", "outputEbook/Solaires - 5 - Le catalogue.mobi", "outputEbook/Solaires - 5 - Le catalogue.epub", "outputEbook/Solaires - 5 - Le catalogue.pdf");
 });
 
+// Génération des articles du site

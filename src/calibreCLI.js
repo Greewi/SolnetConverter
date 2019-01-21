@@ -1,4 +1,4 @@
-const { spawn } = require('child_process');
+const { spawnSync } = require('child_process');
 const config = require('../config.json')
 
 exports.CalibreCLI = class {
@@ -58,20 +58,11 @@ exports.CalibreCLI = class {
      */
     static _executeCommande(commande){
         return new Promise((resolve, reject)=>{
-            const command = spawn (config.calibre, commande);
-
-            command.stdout.on('data', (data) => {
-                console.error(`CalibreCLI - log : ${data}`);
-            });
-            
-            command.stderr.on('data', (data) => {
-                console.error(`CalibreCLI - err : ${data}`);
-            });
-            
-            command.on('exit', (code) => {
-                console.error(`CalibreCLI - Fin de la commande avec le code : ${code}`);
-                resolve();
-            });
+            const resultat = spawnSync (config.calibre, commande);
+            console.error(`CalibreCLI - log : ${resultat.stdout}`);
+            console.error(`CalibreCLI - err : ${resultat.stderr}`);
+            console.error(`CalibreCLI - Fin de la commande avec le code : ${resultat.status}`);
+            resolve();
         });
     }
 };
