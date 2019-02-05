@@ -19,7 +19,15 @@ exports.ODT2HTML = class {
             return LOfficeCLI.convertOdtToHtml(odtFile, outdir);
         })
         .then(()=>{
-            fs.renameSync(htmlFile, tmpFile);
+            let done = false;
+            while(!done)            {
+                try{
+                    fs.renameSync(htmlFile, tmpFile);
+                    done=true;
+                }catch(e){
+                    console.error(e);
+                }
+            }
             return new Promise((accept, reject)=>{
                 fs.readFile(tmpFile, "utf8", function(err, html){
                     if(err)

@@ -11,7 +11,7 @@ for(let id in config.sources)
 let promise = Promise.resolve();
 
 // Génération des fichiers HTML à partir des sources ODT
-for(let i=60; i<articles.length; i++)
+for(let i=0; i<articles.length; i++)
 {
     let id = articles[i];
     promise = promise.then(()=>{
