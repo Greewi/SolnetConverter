@@ -1,6 +1,7 @@
 {
     "loffice" : "C:\\Program Files\\LibreOffice\\program\\soffice.exe",
     "calibre" : "C:\\Program Files\\Calibre2\\ebook-convert.exe",
+    "wkhtmltopdf" : "D:\\Logiciels\\wkhtmltopdf\\bin\\wkhtmltopdf.exe",
     "outputDir" : "./output",
     "sources" : {
         "introduction" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\0 - Introduction.odt",
@@ -14,7 +15,7 @@
         "mecanismesParticuliers" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\3 - Mécanismes particuliers.odt",
         "pointsPersonnages" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\4 - Points de personnage.odt",
         "conseilsJoueurs" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\5 - Conseils aux joueurs.odt",
-        "conseilsMeneurs" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\6 - Conseils au meneurs.odt",
+        "conseilsMeneurs" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\6 - Conseils aux meneurs.odt",
         "systemeCombat" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Combat.odt",
         "systemeEnquete" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Enquête.odt",
         "systemeEspace" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Espace.odt",
@@ -23,7 +24,7 @@
         "systemeNegociation" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Négociation.odt",
         "systemeRelation" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Relation.odt",
         "systemeTechnologie" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Technologie.odt",
-        "creationPersonnages" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\1 - Creation de personnage.odt",
+        "creationPersonnages" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\1 - Création de personnage.odt",
         "creationPersonnagesGuidee" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\2 - Création guidée.odt",
         "creationPersonnagesQuestionnaire" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\3 - Création par questionnaire.odt",
         "creationPersonnagesDescriptive" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\4 - Création descriptive.odt",

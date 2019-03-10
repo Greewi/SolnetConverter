@@ -1,4 +1,5 @@
 *.log
+*.pdf
 input/
 output/
 package-lock\.json
@@ -6,3 +7,5 @@ tmp\.html
 node_modules/
 outputHTML/
 outputEbook/
+outputMD/
+.vscode/
