@@ -16,12 +16,12 @@ exports.WkHtmlToPdfCLI = class {
                 options.push("--margin-bottom", livre.options["margin-bottom"]);
                 options.push("--margin-left", livre.options["margin-left"]);
                 options.push("--margin-right", livre.options["margin-right"]);
+                if (livre.couverture)
+                    options.push("page", livre.couverture.src);
                 if (livre.options.toc == "debut")
                     options.push("toc");
-                if (livre.couverture)
-                    options.push("cover", livre.couverture.src);
                 options.push("page", inputFile);
-                if(livre.footer)
+                if (livre.footer)
                     options.push("--footer-html", livre.footer.src);
                 if (livre.options.toc == "fin")
                     options.push("toc");

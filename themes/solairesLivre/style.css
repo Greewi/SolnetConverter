@@ -21,9 +21,10 @@ html, body {
 .couverture {
     width: 100%;
     height: 100%;
-    background: url('Couverture.png');
-    background-size: cover;
+    background: url('Couverture V5.png');
+    background-size: contain;
     background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .footer {
