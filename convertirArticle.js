@@ -2,6 +2,7 @@ const { ODT2HTML } = require("./src/odt2html");
 const { HTML2EBOOK } = require("./src/html2ebook");
 const { HTML2MD } = require("./src/html2md");
 const { MD2HTML } = require("./src/md2html");
+const { MD2Creole } = require("./src/md2creole");
 const config = require('./config.json');
 
 const usage = (error)=>{
@@ -23,6 +24,11 @@ else if(parametres[0].endsWith(".html") && parametres[1].endsWith(".md"))
 else if(parametres[0].endsWith(".md") && parametres[1].endsWith(".html"))
 {
     MD2HTML.convert(parametres[0], parametres[1]);
+}
+// MD -> Creole
+else if(parametres[0].endsWith(".md") && parametres[1].endsWith(".txt"))
+{
+    MD2Creole.convert(parametres[0], parametres[1]);
 }
 // ODT -> HTML
 else if(parametres[0].endsWith(".odt") && parametres[1].endsWith(".html"))
