@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 
 /**
  * @param {string} source la source du HTML à charger
@@ -33,9 +33,43 @@ exports.writeFile = (data, dest)=>{
     })
 };
 
+/**
+ * Créé un repertoire récursivement
+ * @param {string} path le chemin à créer
+ */
 exports.mkdir = (path)=>{
     return new Promise((accept, reject)=>{
         fs.mkdir(path, {recursive:true}, (err)=>{
+            if(err)
+                reject(err);
+            else
+                accept();
+        });
+    });
+};
+
+/**
+ * Vide un repertoire
+ * @param {string} path le chemin du répertoire à vider
+ */
+exports.emptyDir = (path)=>{
+    return new Promise((accept, reject)=>{
+        fs.emptyDir(path, (err)=>{
+            if(err)
+                reject(err);
+            else
+                accept();
+        });
+    });
+};
+
+/**
+ * Supprime un fichier
+ * @param {string} path le chemin du fichier à supprimer
+ */
+exports.remove = (path)=>{
+    return new Promise((accept, reject)=>{
+        fs.remove(path, (err)=>{
             if(err)
                 reject(err);
             else

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Outils de conversion et de génération de documents pour Solaires",
   "dependencies": {
+    "fs-extra": "^7.0.1",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {},

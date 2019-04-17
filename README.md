@@ -70,6 +70,8 @@ Par exemple :
 
 À la racine du projet, entrez la commande suivante :
 
-`node construireLivre JSON_LIVRE`
+`node construireLivre JSON_LIVRE DESTINATION`
 
 >> `JSON_LIVRE` est un json définissant toutes les options du livre à générer. Ces livres sont normalement rangés dans le répertoire livres. Ils contiennent des références aux articles à intégrer et il est donc nécessaire de mettre à jour les références à ces textes s'ils ne se trouvent pas au même endroit que sur ma (Greewi) machine, ce qui est extrêmement probable.
+>>
+>> `DESTINATION` le chemin et nom du fichier à générer. Note : pour le moment, seul le format PDF est utilisable.
