@@ -1,0 +1,14 @@
+{
+    "titre" : "Solaires - Le contexte",
+    "racine" : "D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5 - md\\",
+    "theme" : "solairesEbook",
+    "structure" : [
+        {"source" : "Encyclopédie\\3 - Le contexte", "style" : "intro", "niveau" : 1},
+        {"source" : "Encyclopédie\\3 - Le contexte\\1 - Système solaire", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\3 - Le contexte\\2 - Systèmes planétaires", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\3 - Le contexte\\3 - Événements clefs", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\3 - Le contexte\\4 - Chronologie", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\3 - Le contexte\\5 - Factions", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\3 - Le contexte\\6 - Science et technologie", "style" : "article", "niveau" : 2}
+    ]
+}

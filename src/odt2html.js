@@ -13,7 +13,7 @@ exports.ODT2HTML = class {
     static convert(odtFile, outputFile){
         let outdir = ".";
         let htmlFile = odtFile.replace(".odt", ".html").replace(/.*(\\|\/)([^\\\/]*)$/, "./$2");
-        let tmpFile = "./tmp.html";
+        let tmpFile = "tmp/tmp.html";
         return Promise.resolve()
         .then(()=>{
             return LOfficeCLI.convertOdtToHtml(odtFile, outdir);

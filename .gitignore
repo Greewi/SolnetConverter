@@ -1,13 +1,9 @@
+node_modules/
 package-lock\.json
-tmp/
 .vscode/
+tmp/
 config.json
 *.log
 *.pdf
-input/
-output/
-tmp\.html
-node_modules/
-outputHTML/
-outputEbook/
-outputMD/
+*.mobi
+*.epub

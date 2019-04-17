@@ -1,0 +1,15 @@
+{
+    "titre" : "Solaires - Vies de solaires",
+    "racine" : "D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5 - md\\",
+    "theme" : "solairesEbook",
+    "structure" : [
+        {"source" : "Encyclopédie\\4 - Vies de solaires", "style" : "intro", "niveau" : 1},
+        {"source" : "Encyclopédie\\4 - Vies de solaires\\1 - Civilisation de l'abondance", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\4 - Vies de solaires\\2 - Corporations", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\4 - Vies de solaires\\3 - Habitat", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\4 - Vies de solaires\\4 - Rites de vie", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\4 - Vies de solaires\\5 - De la naissance à la mort", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\4 - Vies de solaires\\6 - Colonies", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\4 - Vies de solaires\\7 - Voyage et communication", "style" : "article", "niveau" : 2}
+    ]
+}

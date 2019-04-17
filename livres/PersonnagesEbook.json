@@ -1,0 +1,13 @@
+{
+    "titre" : "Solaires - Personnages",
+    "racine" : "D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5 - md\\",
+    "theme" : "solairesEbook",
+    "structure" : [
+        {"source" : "Encyclopédie\\2 - Les personnages", "style" : "intro", "niveau" : 1},
+        {"source" : "Encyclopédie\\2 - Les personnages\\1 - Création de personnage", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\2 - Les personnages\\2 - Création guidée", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\2 - Les personnages\\3 - Création par questionnaire", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\2 - Les personnages\\4 - Création descriptive", "style" : "article", "niveau" : 2},
+        {"source" : "Encyclopédie\\2 - Les personnages\\5 - Évolution", "style" : "article", "niveau" : 2}
+    ]
+}
