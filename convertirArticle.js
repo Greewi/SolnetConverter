@@ -3,7 +3,6 @@ const { HTML2EBOOK } = require("./src/html2ebook");
 const { HTML2MD } = require("./src/html2md");
 const { MD2HTML } = require("./src/md2html");
 const { MD2Creole } = require("./src/md2creole");
-const config = require('./config.json');
 
 const usage = (error)=>{
     if(error)

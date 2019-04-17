@@ -1,0 +1,19 @@
+{
+  "name": "solnetconverter",
+  "version": "1.0.0",
+  "description": "Outils de conversion et de génération de documents pour Solaires",
+  "dependencies": {
+    "xmldom": "^0.1.27"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Greewi/SolnetConverter.git"
+  },
+  "author": "Sylvain « Greewi » Dumazet",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Greewi/SolnetConverter/issues"
+  },
+  "homepage": "https://github.com/Greewi/SolnetConverter#readme"
+}

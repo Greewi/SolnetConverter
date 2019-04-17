@@ -1,0 +1,177 @@
+{
+    "loffice" : "C:\\Program Files\\LibreOffice\\program\\soffice.exe",
+    "calibre" : "C:\\Program Files\\Calibre2\\ebook-convert.exe",
+    "inkscape" : "D:\\Logiciels\\Inkscape\\inkscape.exe",
+    "wkhtmltopdf" : "D:\\Logiciels\\wkhtmltopdf\\bin\\wkhtmltopdf.exe",
+    "pdfunite" : "C:\\cygwin64\\bin\\pdfunite.exe",
+    "outputDir" : "./output",
+    "sources" : {
+        "introduction" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\0 - Introduction.odt",
+        "regles" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires.odt",
+        "personnages" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages.odt",
+        "contexte" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\3 - Le contexte.odt",
+        "modeDeVie" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires.odt",
+        "catalogue" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue.odt",
+        "reglesGenerales" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\1 - Règles générales.odt",
+        "resolutionActions" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\2 - Résoudre une action.odt",
+        "mecanismesParticuliers" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\3 - Mécanismes particuliers.odt",
+        "pointsPersonnages" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\4 - Points de personnage.odt",
+        "conseilsJoueurs" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\5 - Conseils aux joueurs.odt",
+        "conseilsMeneurs" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\6 - Conseils aux meneurs.odt",
+        "systemeCombat" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Combat.odt",
+        "systemeEnquete" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Enquête.odt",
+        "systemeEspace" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Espace.odt",
+        "systemeInfiltration" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Infiltration.odt",
+        "systemeInformatique" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Informatique.odt",
+        "systemeNegociation" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Négociation.odt",
+        "systemeRelation" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Relation.odt",
+        "systemeTechnologie" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\1 - Jouer à Solaires\\Technologie.odt",
+        "creationPersonnages" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\1 - Création de personnage.odt",
+        "creationPersonnagesGuidee" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\2 - Création guidée.odt",
+        "creationPersonnagesQuestionnaire" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\3 - Création par questionnaire.odt",
+        "creationPersonnagesDescriptive" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\4 - Création descriptive.odt",
+        "evolutionPersonnages" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\2 - Les personnages\\5 - Évolution.odt",
+        "systemeSolaire" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\3 - Le contexte\\1 - Système solaire.odt",
+        "systemesPlanetaires" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\3 - Le contexte\\2 - Systèmes planétaires.odt",
+        "evenementsClefs" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\3 - Le contexte\\3 - Événements clefs.odt",
+        "chronologie" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\3 - Le contexte\\4 - Chronologie.odt",
+        "factions" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\3 - Le contexte\\5 - Factions.odt",
+        "sciencesEtTechnologie" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\3 - Le contexte\\6 - Science et technologie.odt",
+        "civilisationAbondance" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires\\1 - Civilisation de l'abondance.odt",
+        "corporations" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires\\2 - Corporations.odt",
+        "habitats" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires\\3 - Habitat.odt",
+        "ritesVie" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires\\4 - Rites de vie.odt",
+        "naissanceEtMort" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires\\5 - De la naissance à la mort.odt",
+        "colonies" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires\\6 - Colonies.odt",
+        "voyagesEtCommunication" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\4 - Vies de solaires\\7 - Voyage et communication.odt",
+        "outilsQuotidiens" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\1 - Outils du quotidien.odt",
+        "materielIngenierie" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\2 - Matériel d'ingénieurie.odt",
+        "materielEVA" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\3 - Matériel extravéhiculaire.odt",
+        "materielMedical" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\4 - Matériel médical.odt",
+        "materielEspionnage" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\5 - Matériel d'espionnage.odt",
+        "materielMilitaire" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\6 - Matériel militaire.odt",
+        "vehicules" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\7 - Véhicules.odt",
+        "implantsCybernetiques" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\8 - Implants cybernétiques.odt",
+        "modificationsOrganiques" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\9 - Modifications organiques.odt",
+        "implantPsi" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\10 - Implant psi.odt",
+        "logiciels" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\11 - Logiciels.odt",
+        "robots" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\5 - Le catalogue\\12 - Robots.odt"
+    },
+    "book" : {
+        "introduction" : [],
+        "regles" : [
+            "reglesGenerales",
+            "resolutionActions",
+            "mecanismesParticuliers",
+            "pointsPersonnages",
+            "conseilsJoueurs",
+            "conseilsMeneurs",
+            "systemeCombat",
+            "systemeEnquete",
+            "systemeEspace",
+            "systemeInfiltration",
+            "systemeInformatique",
+            "systemeNegociation",
+            "systemeRelation",
+            "systemeTechnologie"
+        ],
+        "personnages" : [
+            "creationPersonnages",
+            "elementsPersonnages",
+            "evolutionPersonnages"
+        ],
+        "contexte" : [
+            "systemeSolaire",
+            "systemesPlanetaires",
+            "evenementsClefs",
+            "chronologie",
+            "factions",
+            "sciencesEtTechnologie"
+        ],
+        "modeDeVie" : [
+            "civilisationAbondance",
+            "corporations",
+            "habitats",
+            "ritesVie",
+            "naissanceEtMort",
+            "colonies",
+            "voyagesEtCommunication"
+        ],
+        "catalogue" : [
+            "outilsQuotidiens",
+            "materielIngenierie",
+            "materielEVA",
+            "materielMedical",
+            "materielEspionnage",
+            "materielMilitaire",
+            "vehicules",
+            "implantsCybernetiques",
+            "modificationsOrganiques",
+            "implantPsi",
+            "logiciels",
+            "robots"
+        ]
+    },
+    "bookRegles" : {
+        "regles" : [
+            "reglesGenerales",
+            "resolutionActions",
+            "mecanismesParticuliers",
+            "pointsPersonnages",
+            "conseilsJoueurs",
+            "conseilsMeneurs",
+            "systemeCombat",
+            "systemeEnquete",
+            "systemeEspace",
+            "systemeInfiltration",
+            "systemeInformatique",
+            "systemeNegociation",
+            "systemeRelation",
+            "systemeTechnologie"
+        ]
+    },
+    "bookPersonnages" : {
+        "personnages" : [
+            "creationPersonnages",
+            "elementsPersonnages",
+            "evolutionPersonnages"
+        ]
+    },
+    "bookContexte" : {
+        "contexte" : [
+            "systemeSolaire",
+            "systemesPlanetaires",
+            "evenementsClefs",
+            "chronologie",
+            "factions",
+            "sciencesEtTechnologie"
+        ]
+    },
+    "bookModeDeVie" : {
+        "modeDeVie" : [
+            "civilisationAbondance",
+            "corporations",
+            "habitats",
+            "ritesVie",
+            "naissanceEtMort",
+            "colonies",
+            "voyagesEtCommunication"
+        ]
+    },
+    "bookCatalogue" : {
+        "catalogue" : [
+            "outilsQuotidiens",
+            "materielIngenierie",
+            "materielEVA",
+            "materielMedical",
+            "materielEspionnage",
+            "materielMilitaire",
+            "vehicules",
+            "implantsCybernetiques",
+            "modificationsOrganiques",
+            "implantPsi",
+            "logiciels",
+            "robots"
+        ]
+    }
+}
