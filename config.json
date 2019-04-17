@@ -1,7 +1,9 @@
 {
     "loffice" : "C:\\Program Files\\LibreOffice\\program\\soffice.exe",
     "calibre" : "C:\\Program Files\\Calibre2\\ebook-convert.exe",
+    "inkscape" : "D:\\Logiciels\\Inkscape\\inkscape.exe",
     "wkhtmltopdf" : "D:\\Logiciels\\wkhtmltopdf\\bin\\wkhtmltopdf.exe",
+    "pdfunite" : "C:\\cygwin64\\bin\\pdfunite.exe",
     "outputDir" : "./output",
     "sources" : {
         "introduction" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\0 - Introduction.odt",

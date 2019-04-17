@@ -8,7 +8,7 @@ exports.CalibreCLI = class {
      * @param {string} outputFile Le nom et chemin du fichier MOBI à produire
      */
     static convertHtmlToMobi(inputFile, outputFile){
-        this._executeCommande([
+        return this._executeCommande([
             inputFile, outputFile,
             "--max-levels", "0",
             "--page-breaks-before" ,"//*[name()='h1'] | //*[name()='h2']",
@@ -22,7 +22,7 @@ exports.CalibreCLI = class {
      * @param {string} outputFile Le nom et chemin du fichier EPUB à produire
      */
     static convertHtmlToEpub(inputFile, outputFile){
-        this._executeCommande([
+        return this._executeCommande([
             inputFile, outputFile,
             "--max-levels", "0",
             "--no-default-epub-cover",
@@ -37,7 +37,7 @@ exports.CalibreCLI = class {
      * @param {string} outputFile Le nom et chemin du fichier PDF à produire
      */
     static convertHtmlToPdf(inputFile, outputFile){
-        this._executeCommande([
+        return this._executeCommande([
             inputFile, outputFile,
             "--max-levels", "0",
             "--page-breaks-before", "//*[name()='h1'] | //*[name()='h2']",

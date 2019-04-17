@@ -4,6 +4,7 @@ input/
 output/
 package-lock\.json
 tmp\.html
+tmp/
 node_modules/
 outputHTML/
 outputEbook/
