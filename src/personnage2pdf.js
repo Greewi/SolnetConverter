@@ -6,11 +6,12 @@ exports.Personnage2pdf = class {
     /**
      * Converti une personnage au format json en sa fiche au format pdf en se servant d'une définition au format json
      * @param {string} jsonFile le personnage au format json
+     * @param {string} illustration l'illustration du personnage (ou null pour pas d'illustration)
      * @param {string} jsonTemplate la définition de la fiche (chemin vers le fichier json)
      * @param {string} pdfFile le fichier pdf à générer
      * @returns {Promise}
      */
-    static convert(jsonFile, jsonTemplate, pdfFile) {
+    static convert(jsonFile, illustration, jsonTemplate, pdfFile) {
         let personnage;
         let template;
         let valeurs;
@@ -40,9 +41,9 @@ exports.Personnage2pdf = class {
                                 valeur = "";
                             } else {
                                 let coupure = lignes[i];
-                                for(let l=0; l<lignes[i]; l++)
-                                    if(valeur[l]==" ")
-                                        coupure = l+1;
+                                for (let l = 0; l < lignes[i]; l++)
+                                    if (valeur[l] == " ")
+                                        coupure = l + 1;
                                 valeurs[nom + i] = valeur.substring(0, coupure);
                                 valeur = valeur.substring(coupure);
                             }
@@ -51,6 +52,13 @@ exports.Personnage2pdf = class {
                     else {
                         valeurs[nom] = valeur;
                     }
+                }
+                if (illustration != null) {
+                    valeurs["illustration"] = illustration;
+                    valeurs["displayIllustration"] = "block";
+                }
+                else {
+                    valeurs["displayIllustration"] = "none";
                 }
             })
             .then(() => {
@@ -88,7 +96,7 @@ exports.Personnage2pdf = class {
         let type = resultat[1];
         let chemin = resultat[2];
         let valeur = this._recupereValeur(chemin, objet);
-        if(valeur===undefined)
+        if (valeur === undefined)
             console.error("Valeur non trouvée : ", chemin);
         return this._convertiValeur(type, valeur);
     }
