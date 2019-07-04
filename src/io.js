@@ -36,6 +36,7 @@ exports.writeFile = (data, dest)=>{
 /**
  * Créé un repertoire récursivement
  * @param {string} path le chemin à créer
+ * @returns {Promise}
  */
 exports.mkdir = (path)=>{
     return new Promise((accept, reject)=>{
@@ -51,6 +52,7 @@ exports.mkdir = (path)=>{
 /**
  * Vide un repertoire
  * @param {string} path le chemin du répertoire à vider
+ * @returns {Promise}
  */
 exports.emptyDir = (path)=>{
     return new Promise((accept, reject)=>{
@@ -66,10 +68,28 @@ exports.emptyDir = (path)=>{
 /**
  * Supprime un fichier
  * @param {string} path le chemin du fichier à supprimer
+ * @returns {Promise}
  */
 exports.remove = (path)=>{
     return new Promise((accept, reject)=>{
         fs.remove(path, (err)=>{
+            if(err)
+                reject(err);
+            else
+                accept();
+        });
+    });
+};
+
+/**
+ * Copie un fichier
+ * @param {string} source le chemin de la source
+ * @param {string} dest le nom et chemin de destination
+ * @returns {Promise}
+ */
+exports.copy = (source, dest)=>{
+    return new Promise((accept, reject)=>{
+        fs.copyFile(source, dest, (err) => {
             if(err)
                 reject(err);
             else

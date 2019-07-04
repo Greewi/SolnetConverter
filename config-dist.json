@@ -5,6 +5,7 @@
     "wkhtmltopdf" : "C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe",
     "pdfunite" : "C:\\cygwin64\\bin\\pdfunite.exe",
     "pdftk" : "C:\\Program Files (x86)\\PDFtk Server\\bin\\pdftk.exe",
+    "ghostscript" : "C:\\Program Files\\gs\\gs9.27\\bin\\gswin64.exe",
     "outputDir" : "./output",
     "sources" : {
         "introduction" :"D:\\Dropbox\\JdR\\Jeux\\Solaires\\Textes\\V5\\0 - Introduction.odt",

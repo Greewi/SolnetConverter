@@ -43,7 +43,7 @@ exports.MD2HTML = class {
      * @param {string} markdown Le texte source au format Markdown
      * @returns {string}
      */
-    static _convertiMarkdownVersHTML(markdown) {
+    static convertiMarkdownVersHTML(markdown) {
         // Segmentation des lignes
         let lignesBrutes = markdown.split(/\n/);
         let lignes = [];

@@ -1,0 +1,24 @@
+{
+    "styles": {
+        "couverture": {
+            "classe": "couverture",
+            "template": "livre"
+        },
+        "recit": {
+            "classe": "recit",
+            "template": "livre"
+        }
+    },
+    "templates": {
+        "livre": {
+            "type": "texte",
+            "page": {
+                "format": "A5",
+                "margin-top": "1.5cm",
+                "margin-bottom": "2.5cm",
+                "margin-left": "1.5cm",
+                "margin-right": "1.5cm"
+            }
+        }
+    }
+}
