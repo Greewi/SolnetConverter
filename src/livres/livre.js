@@ -97,7 +97,7 @@ const Livre = class {
     getRessources() {
         let ressources = [];
         for (let section of this._sections){
-            ressources = ressources.concat(ressources, section.getRessources());
+            ressources = ressources.concat(section.getRessources());
         }
         return ressources;
     }

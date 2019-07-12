@@ -1,0 +1,244 @@
+:root {
+    font-size: 8pt;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+@page {
+    size: 11.85cm 18.5cm;
+    margin: 1.5cm 1.5cm 1cm 1.5cm;
+}
+
+.sautPage {
+    width: 0;
+    height: 0;
+    page-break-before: always;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    page-break-inside: avoid;
+}
+
+/* Style des textes d'introduction de chapitre */
+
+.introduction h1 {
+    font-family: 'Designer Block', Impact, sans-serif;
+    font-size: 4rem;
+    text-align: right;
+    padding-top: 4rem;
+    margin-bottom: 2rem;
+    page-break-before: always;
+    page-break-inside: avoid;
+}
+
+.introduction p {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    text-align: justify;
+    font-style: italic;
+    font-stretch: condensed;
+    font-size: 1rem;
+    width: 8cm;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+}
+
+/* Style des textes des articles */
+
+.article h2 {
+    font-family: 'Designer Block', Impact, sans-serif;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    page-break-before: always;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    background: url('Fond de titre 2.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.article h3 {
+    font-family: 'Designer Block', Impact, sans-serif;
+    text-align: left;
+    font-style: normal;
+    font-weight: normal;
+    border-bottom: solid 1pt #000;
+    font-size: 1.5rem;
+    margin-top: .5rem;
+    margin-bottom: calc(1rem - 1pt);
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+
+.article p {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    text-align: justify;
+    font-style: normal;
+    font-stretch: condensed;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+}
+
+.article ul {
+    margin-top: -1rem;
+    margin-bottom: 0;
+    padding: 0 0 0 2rem;
+    list-style: none;
+}
+
+.article li {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    text-align: justify;
+    font-style: normal;
+    font-stretch: condensed;
+    font-size: 1rem;
+    margin: 0;
+    page-break-inside: avoid;
+}
+
+.article li::before {
+    content: '';
+    display: inline-block;
+    vertical-align: baseline;
+    height:0.8rem;
+    width:0.8rem;
+    margin-left:-1.3rem;
+    margin-right: 0.5rem;
+    background-image: url('Puce.png');
+    background-size: contain;
+    background-position: center center;
+}
+
+.article em {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-stretch: condensed;
+}
+
+.article cite {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    font-stretch: condensed;
+}
+
+.article aside {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: solid 1.5mm rgb(122, 122, 122);
+    border-radius: 1rem;
+    padding-top: calc(1rem - 2mm);
+    padding-bottom: calc(1rem - 2mm);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: url('Fond de cadre.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 5.7cm auto;
+    page-break-inside: avoid;
+}
+
+.article blockquote {
+    margin: 0 2cm 0 2cm;
+    page-break-inside: avoid;
+}
+
+.article blockquote p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.article table {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    border: solid 1.5mm #000;
+    border-radius: 1rem;
+    border-spacing: 0.5mm;
+    background: #000;
+    overflow: hidden;
+    page-break-inside: avoid;
+}
+
+.article th {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    background: #000;
+    color: #FFF;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.article td {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: condensed;
+    background: #FFF;
+    color: #000;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+/* Style des textes des recits */
+
+.recit {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    page-break-before: always;
+    border-left: solid 1.5mm rgb(122, 122, 122);
+    border-right: solid 1.5mm rgb(122, 122, 122);
+    background: url('Fond de récit.png');
+    background-size: 100% auto;
+    background-position: 0 0;
+    background-repeat: repeat-y;
+}
+
+.recit h1 {
+    font-family: 'Designer Block', Impact, sans-serif;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    border-bottom: solid 1pt rgb(122, 122, 122);
+    border-top: solid 1pt rgb(122, 122, 122);
+    font-size: 1.5rem;
+    margin-top: .5rem;
+    margin-bottom: calc(1rem - 2.5pt);
+    padding-bottom: 0.5pt;
+    page-break-before: always;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+
+.recit p {
+    font-family: 'DejaVu Sans Condensed', Arial, sans-serif;
+    text-align: justify;
+    font-style: normal;
+    font-stretch: condensed;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-indent: 2rem;
+    page-break-inside: avoid;
+}

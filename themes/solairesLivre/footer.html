@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <title>%title%</title>
-    <link rel="stylesheet" href="style.css">
+    <title>%titre%</title>
+    <link rel="stylesheet" href="footer.css">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script>
         function init() {
@@ -15,14 +15,15 @@
             }
 
             //Remplissage du footer
+            var page = parseInt(parametres.page) + parseInt("%pageDebut%");
             var footer = document.getElementById("footer");
-            if (parseInt(parametres.page) % 2 == 0) {
+            if (parseInt(page) % 2 == 0) {
                 footer.classList.add("gauche");
                 footer.textContent = parametres.section;
             }
             else {
                 footer.classList.add("droite");
-                footer.textContent = parametres.page;
+                footer.textContent = page;
             }
         }
     </script>

@@ -1,4 +1,5 @@
 const io = require("./src/io");
+const pdfParse = require("pdf-parse");
 const { WkHtmlToPdfCLI } = require("./src/wkhtmltopdfCLI");
 const { GhostscriptCLI } = require("./src/cli/ghostscriptCLI");
 const { CalibreCLI } = require("./src/calibreCLI");
@@ -37,7 +38,7 @@ else {
     let promise = Promise.resolve();
     // Nettoyage des générations précédentes
     promise = promise.then(() => {
-        io.emptyDir("tmp/");
+        return io.emptyDir("tmp/");
     });
 
     // Chargement du livre et du thème
@@ -105,17 +106,18 @@ else {
                         superSection.html += template.getHTML().replace("%titre%", livre.getTitre()).replace("%contenu%", `<div class="${section.getStyle()}">${section.getHTML()}</div>`);
                 }
             }
+            let nombrePage = 0;
             let promiseEcriture = Promise.resolve();
             for (let i = 0; i < superSections.length; i++) {
                 let superSection = superSections[i];
                 let template = superSection.template;
                 promiseEcriture = promiseEcriture.then(() => {
-                    io.writeFile(superSection.html, `${tempDir}section${i}.html`)
+                    return io.writeFile(superSection.html, `${tempDir}section${i}.html`)
                 });
                 if (template.getPage().footer) {
                     let templateFooter = theme.getTemplate(template.getPage().footer);
                     promiseEcriture = promiseEcriture.then(() => {
-                        io.writeFile(templateFooter.getHTML(), `${tempDir}footer${i}.html`);
+                        return io.writeFile(templateFooter.getHTML().replace("%pageDebut%", nombrePage), `${tempDir}footer${i}.html`);
                     });
                 }
                 promiseEcriture = promiseEcriture.then(() => {
@@ -123,6 +125,12 @@ else {
                         return WkHtmlToPdfCLI.convertHtmlToPdf(`${tempDir}section${i}.html`, `${tempDir}footer${i}.html`, `${tempDir}section${i}.pdf`, template.getPage());
                     else
                         return WkHtmlToPdfCLI.convertHtmlToPdf(`${tempDir}section${i}.html`, null, `${tempDir}section${i}.pdf`, template.getPage());
+                }).then(() => {
+                    return io.readFile(`${tempDir}section${i}.pdf`);
+                }).then(() => {
+                    return pdfParse(`${tempDir}section${i}.pdf`);
+                }).then((infosPDF) => {
+                    nombrePage += infosPDF.numpages;
                 });
             }
             return promiseEcriture;
@@ -130,7 +138,6 @@ else {
 
         // Génération du pdf final
         promise = promise.then(() => {
-            console.log("HEEEEEEEEEEEEEEEEEYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY !")
             let listePDF = [];
             for (let i = 0; i < superSections.length; i++)
                 listePDF.push(`${tempDir}section${i}.pdf`);
@@ -143,7 +150,7 @@ else {
         promise = promise.then(() => {
             let html = "";
             let template = null;
-            for(let section of livre.getSections()) {
+            for (let section of livre.getSections()) {
                 let style = theme.getStyle(section.getStyle());
                 template = theme.getTemplate(style.getTemplate());
                 if (section.getHTML() == null)

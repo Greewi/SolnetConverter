@@ -4,6 +4,7 @@
   "description": "Outils de conversion et de génération de documents pour Solaires",
   "dependencies": {
     "fs-extra": "^7.0.1",
+    "pdf-parse": "^1.1.1",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {},

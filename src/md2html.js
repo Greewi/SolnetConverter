@@ -29,13 +29,13 @@ exports.MD2HTML = class {
      * @returns {string}
      */
     static _appliqueStyleInline(texte) {
-        return texte
-            .replace("&", "&amp;")
+        return texte.replace("&", "&amp;")
             .replace("<", "&lt;")
             .replace(">", "&gt;")
+            .replace(/!\[([^\[]+)]\(([^(]+)\)/g,'<img src="$2" alt="$1"/>')
+            .replace(/\[([^\[]+)]\(([^(]+)\)/g,'<a href="$2">$1</a>')
             .replace(/\*\*([^ ][^\*]*[^ ]|[^*])\*\*/gm, "<em>$1</em>")
-            .replace(/\*([^ ][^\*]*[^ ]|[^*])\*/gm, "<cite>$1</cite>")
-            ;
+            .replace(/\*([^ ][^\*]*[^ ]|[^*])\*/gm, "<cite>$1</cite>");
     };
 
     /**
