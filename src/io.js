@@ -4,12 +4,12 @@ const fs = require('fs-extra');
  * @param {string} source la source du HTML à charger
  * @returns {Promise<string>} une promise qui résoud le HTML chargé
  */
-exports.readFile = (source)=>{
-    return new Promise((accept, reject)=>{
-        fs.readFile(source, "utf8", (err, htmlSource)=>{
-            if(err)
+exports.readFile = (source) => {
+    return new Promise((accept, reject) => {
+        fs.readFile(source, "utf8", (err, htmlSource) => {
+            if (err)
                 reject(err);
-            else{
+            else {
                 accept(htmlSource);
             }
         });
@@ -22,10 +22,10 @@ exports.readFile = (source)=>{
  * @param {string} dest 
  * @returns {Promise}
  */
-exports.writeFile = (data, dest)=>{
-    return new Promise((accept, reject)=>{
-        fs.writeFile(dest, data, "utf8", (err)=>{
-            if(err)
+exports.writeFile = (data, dest) => {
+    return new Promise((accept, reject) => {
+        fs.writeFile(dest, data, "utf8", (err) => {
+            if (err)
                 reject(err);
             else
                 accept();
@@ -38,10 +38,10 @@ exports.writeFile = (data, dest)=>{
  * @param {string} path le chemin à créer
  * @returns {Promise}
  */
-exports.mkdir = (path)=>{
-    return new Promise((accept, reject)=>{
-        fs.mkdir(path, {recursive:true}, (err)=>{
-            if(err)
+exports.mkdir = (path) => {
+    return new Promise((accept, reject) => {
+        fs.mkdir(path, { recursive: true }, (err) => {
+            if (err)
                 reject(err);
             else
                 accept();
@@ -54,10 +54,10 @@ exports.mkdir = (path)=>{
  * @param {string} path le chemin du répertoire à vider
  * @returns {Promise}
  */
-exports.emptyDir = (path)=>{
-    return new Promise((accept, reject)=>{
-        fs.emptyDir(path, (err)=>{
-            if(err)
+exports.emptyDir = (path) => {
+    return new Promise((accept, reject) => {
+        fs.emptyDir(path, (err) => {
+            if (err)
                 reject(err);
             else
                 accept();
@@ -70,10 +70,10 @@ exports.emptyDir = (path)=>{
  * @param {string} path le chemin du fichier à supprimer
  * @returns {Promise}
  */
-exports.remove = (path)=>{
-    return new Promise((accept, reject)=>{
-        fs.remove(path, (err)=>{
-            if(err)
+exports.remove = (path) => {
+    return new Promise((accept, reject) => {
+        fs.remove(path, (err) => {
+            if (err)
                 reject(err);
             else
                 accept();
@@ -87,13 +87,21 @@ exports.remove = (path)=>{
  * @param {string} dest le nom et chemin de destination
  * @returns {Promise}
  */
-exports.copy = (source, dest)=>{
-    return new Promise((accept, reject)=>{
+exports.copy = (source, dest) => {
+    return new Promise((accept, reject) => {
         fs.copyFile(source, dest, (err) => {
-            if(err)
+            if (err)
                 reject(err);
             else
                 accept();
         });
     });
+};
+
+/**
+ * Détermine si un fichier ou un chemin existe.
+ * @returns {boolean} vrai si le chemin existe
+ */
+exports.fileExists = (path) => {
+    return fs.existsSync(path);
 };

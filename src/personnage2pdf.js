@@ -1,20 +1,22 @@
 const InkscapeCLI = require('./inkscapeCLI').InkscapeCLI;
-const PDFUniteCLI = require('./pdfuniteCLI').PDFUniteCLI;
+const GhostscriptCLI = require("./cli/ghostscriptCLI").GhostscriptCLI;
 const io = require('./io');
 
 exports.Personnage2pdf = class {
     /**
      * Converti une personnage au format json en sa fiche au format pdf en se servant d'une définition au format json
      * @param {string} jsonFile le personnage au format json
-     * @param {string} illustration l'illustration du personnage (ou null pour pas d'illustration)
      * @param {string} jsonTemplate la définition de la fiche (chemin vers le fichier json)
      * @param {string} pdfFile le fichier pdf à générer
      * @returns {Promise}
      */
-    static convert(jsonFile, illustration, jsonTemplate, pdfFile) {
+    static convert(jsonFile, jsonTemplate, pdfFile) {
         let personnage;
         let template;
         let valeurs;
+        let illustration = jsonFile.replace(".json", ".png");
+        if (!io.fileExists(illustration))
+            illustration = null;
         let promise = Promise.resolve()
             .then(() => {
                 return io.readFile(jsonTemplate);
@@ -81,7 +83,7 @@ exports.Personnage2pdf = class {
                 let listePDF = [];
                 for (let i = 0; i < template.svg.length; i++)
                     listePDF.push(`tmp/page${i}.pdf`);
-                return PDFUniteCLI.unifiePDF(listePDF, pdfFile);
+                return GhostscriptCLI.unifiePDF(listePDF, pdfFile);
             });
         return promise;
     }
