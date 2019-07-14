@@ -101,9 +101,17 @@ else {
                 let template = superSection.template;
                 for (let section of superSection.sections) {
                     if (template.getType() == "image")
-                        superSection.html += template.getHTML().replace("%titre%", livre.getTitre()).replace("%source%", section.getSource());
+                        superSection.html += template.getHTML()
+                            .replace("%titre%", livre.getTitre())
+                            .replace("%auteur%", livre.getAuteur())
+                            .replace("%description%", livre.getDescription())
+                            .replace("%source%", section.getSource());
                     else
-                        superSection.html += template.getHTML().replace("%titre%", livre.getTitre()).replace("%contenu%", `<div class="${section.getStyle()}">${section.getHTML()}</div>`);
+                        superSection.html += template.getHTML()
+                            .replace("%titre%", livre.getTitre())
+                            .replace("%auteur%", livre.getAuteur())
+                            .replace("%description%", livre.getDescription())
+                            .replace("%contenu%", `<div class="${section.getStyle()}">${section.getHTML()}</div>`);
                 }
             }
             let nombrePage = 0;
@@ -158,7 +166,11 @@ else {
                 else
                     html += `<div class="${section.getStyle()}">${section.getHTML()}</div>`;
             }
-            html = template.getHTML().replace("%titre%", livre.getTitre()).replace("%contenu%", html);
+            html = template.getHTML()
+                .replace("%titre%", livre.getTitre())
+                .replace("%auteur%", livre.getAuteur())
+                .replace("%description%", livre.getDescription())
+                .replace("%contenu%", html);
             return io.writeFile(html, `${tempDir}livre.html`);
         }).then(() => {
             if (destinationLivre.endsWith(".epub"))

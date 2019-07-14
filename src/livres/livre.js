@@ -23,7 +23,7 @@ const Livre = class {
         }).then((sectionsChargees) => {
             sections = sectionsChargees;
         }).then(() => {
-            return new Livre(racine, config.titre, sections);
+            return new Livre(racine, config.titre, config.auteur, config.description, sections);
         });
     }
 
@@ -51,11 +51,15 @@ const Livre = class {
     /**
      * @param {string} racine le chemin racine du livre
      * @param {string} titre le titre du livre
+     * @param {string} auteur le ou les auteurs du livre
+     * @param {string} description la description du livre
      * @param {Section[]} sections la liste des sections du livre
      */
-    constructor(racine, titre, sections) {
+    constructor(racine, titre, auteur, description, sections) {
         this._racine = racine;
         this._titre = titre;
+        this._auteur = auteur;
+        this._description = description;
         this._sections = sections;
     }
 
@@ -71,6 +75,20 @@ const Livre = class {
      */
     getTitre() {
         return this._titre;
+    }
+
+    /**
+     * @returns {string} le ou les auteurs du livre
+     */
+    getAuteur() {
+        return this._auteur;
+    }
+
+    /**
+     * @return {string} la description du livre
+     */
+    getDescription() {
+        return this._description;
     }
 
     /**
@@ -96,7 +114,7 @@ const Livre = class {
 
     getRessources() {
         let ressources = [];
-        for (let section of this._sections){
+        for (let section of this._sections) {
             ressources = ressources.concat(section.getRessources());
         }
         return ressources;
@@ -127,7 +145,7 @@ const Section = class {
 
                 let regex = /\!\[[^\]]*\]\(([^)]+)\)/g;
                 let matches;
-                while((matches = regex.exec(texte)) != null) {
+                while ((matches = regex.exec(texte)) != null) {
                     ressources.push(matches[1]);
                 }
             }
