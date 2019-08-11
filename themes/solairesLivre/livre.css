@@ -121,7 +121,7 @@ img {
 
 .article ul {
     margin-top: -1rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     padding: 0 0 0 2rem;
     list-style: none;
 }
@@ -169,8 +169,8 @@ img {
     margin-bottom: 1rem;
     border: solid 1.5mm rgb(122, 122, 122);
     border-radius: 1rem;
-    padding-top: calc(1rem - 2mm);
-    padding-bottom: calc(1rem - 2mm);
+    padding-top: calc(1rem - 1.5mm);
+    padding-bottom: calc(1rem - 1.5mm);
     padding-left: 1rem;
     padding-right: 1rem;
     background: url('Fond de cadre.png');
