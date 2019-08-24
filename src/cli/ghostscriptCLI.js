@@ -1,5 +1,6 @@
 const { CLI } = require('./CLI');
 const config = require('../../config.json');
+const io = require('../io');
 
 exports.GhostscriptCLI = class {
 
@@ -17,4 +18,15 @@ exports.GhostscriptCLI = class {
             commande.push(pdf);
         return CLI.executeCommande(config.ghostscript, commande);
     };
+
+    static reparePDF(pdf) {
+        return this.unifiePDF([pdf], "tmp.ghostscript.pdf")
+            .then(() => {
+                return io.copy("tmp.ghostscript.pdf", pdf);
+            })
+            .then(() => {
+                return io.remove("tmp.ghostscript.pdf");
+            });
+    }
+
 };

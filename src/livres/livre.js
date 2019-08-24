@@ -136,7 +136,7 @@ const Section = class {
         let style = configSection.style;
         let texte = null;
         let niveau = configSection.niveau;
-        let ressources = source.endsWith(".md") ? [] : [source];
+        let ressources = source.endsWith(".md") || source=="" ? [] : [source];
         return Promise.resolve().then(() => {
             return this.chargeTexte(racine, source);
         }).then((texteCharge) => {

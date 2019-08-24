@@ -4,6 +4,10 @@
             "classe": "couverture",
             "template": "couverture"
         },
+        "sommaire": {
+            "classe": "sommaire",
+            "template": "sommaire"
+        },
         "introduction": {
             "classe": "introduction",
             "template": "livre"
@@ -37,6 +41,16 @@
                 "margin-left": "1.5cm",
                 "margin-right": "1.5cm",
                 "footer": "footer"
+            }
+        },
+        "sommaire": {
+            "type": "sommaire",
+            "page": {
+                "format": "A5",
+                "margin-top": "1.5cm",
+                "margin-bottom": "2.5cm",
+                "margin-left": "1.5cm",
+                "margin-right": "1.5cm"
             }
         },
         "footer": {
