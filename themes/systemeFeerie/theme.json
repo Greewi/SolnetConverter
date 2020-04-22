@@ -1,0 +1,61 @@
+{
+    "styles": {
+        "couverture": {
+            "classe": "couverture",
+            "template": "couverture"
+        },
+        "sommaire": {
+            "classe": "sommaire",
+            "template": "sommaire"
+        },
+        "introduction": {
+            "classe": "introduction",
+            "template": "livre"
+        },
+        "article": {
+            "classe": "article",
+            "template": "livre"
+        },
+        "recit": {
+            "classe": "recit",
+            "template": "livre"
+        }
+    },
+    "templates": {
+        "couverture": {
+            "type": "image",
+            "page": {
+                "format": "A5",
+                "margin-top": "0cm",
+                "margin-bottom": "0cm",
+                "margin-left": "0cm",
+                "margin-right": "0cm"
+            }
+        },
+        "livre": {
+            "type": "texte",
+            "page": {
+                "format": "A5",
+                "margin-top": "1.5cm",
+                "margin-bottom": "2.5cm",
+                "margin-left": "1.5cm",
+                "margin-right": "1.5cm",
+                "footer": "footer"
+            }
+        },
+        "sommaire": {
+            "type": "sommaire",
+            "page": {
+                "format": "A5",
+                "margin-top": "1.5cm",
+                "margin-bottom": "2.5cm",
+                "margin-left": "1.5cm",
+                "margin-right": "1.5cm"
+            }
+        },
+        "footer": {
+            "type": "footer",
+            "page": {}
+        }
+    }
+}

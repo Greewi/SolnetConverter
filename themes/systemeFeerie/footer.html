@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>%titre%</title>
+    <link rel="stylesheet" href="footer.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script>
+        function init() {
+            // Analyse de la query string
+            var parametres = {};
+            var queryString = document.location.search.substring(1).split('&');
+            for (var i = 0; i < queryString.length; i++) {
+                var parametre = queryString[i].split("=");
+                parametres[decodeURI(parametre[0])] = decodeURI(parametre[1]);
+            }
+
+            //Remplissage du footer
+            var page = parseInt(parametres.page) + parseInt("%pageDebut%");
+            var footer = document.getElementById("footer");
+            if (parseInt(page) % 2 == 0) {
+                footer.classList.add("gauche");
+                footer.textContent = parametres.section;
+            }
+            else {
+                footer.classList.add("droite");
+                footer.textContent = page;
+            }
+        }
+    </script>
+</head>
+
+<body style="border:0; margin: 0;" onload="init()">
+    <div id="footer" class="footer">
+
+    </div>
+</body>
+
+</html>

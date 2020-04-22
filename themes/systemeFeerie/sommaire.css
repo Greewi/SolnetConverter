@@ -1,0 +1,84 @@
+:root {
+    font-size: 8pt;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+@page {
+    size: 11.85cm 18.5cm;
+    margin: 1.5cm 1.5cm 1cm 1.5cm;
+}
+
+/* Style des textes des sommaires */
+
+.sommaire {
+    box-sizing: border-box;
+    width: 8cm;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.sommaire ul {
+    box-sizing: border-box;
+    width: 8cm;
+    padding: 0 0 0 0;
+    list-style: none;
+    position: absolute;
+    top: 2cm;
+}
+
+.sommaire li {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    page-break-inside: avoid;
+    display: block;
+    position: relative;
+    font-family: 'Cabin', Arial, sans-serif;
+    text-align: justify;
+    font-style: normal;
+    font-stretch: condensed;
+    font-size: 1rem;
+}
+
+.sommaire li.niveau_1 {
+    font-family: 'Caveat Brush', Impact, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #444;
+    border-bottom: solid 1pt #000;
+    font-size: 1.5rem;
+    margin-top: .5rem;
+    margin-bottom: calc(1rem - 2.5pt);
+    padding-bottom: 0.5pt;
+    page-break-before: always;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+
+.sommaire li.niveau_1 {
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.sommaire li.niveau_2 {
+    padding-left: 0;
+}
+
+.sommaire li.niveau_3 {
+    padding-left: 2rem;
+}
+
+.sommaire .titre {
+    text-align: left;
+}
+
+.sommaire .numeroPage {
+    position: absolute;
+    right: 0;
+    text-align: right;
+}
