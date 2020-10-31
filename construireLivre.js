@@ -65,7 +65,11 @@ else {
         ressources = livre.getRessources();
         for (let ressource of ressources) {
             promiseRessources = promiseRessources.then(() => {
-                return io.copy(livre.getRacine() + ressource, tempDir + ressource);
+                return Promise.resolve().then(() => {
+                    return io.copy(livre.getRacine() + ressource, tempDir + ressource.replace(/.*\//, ""));
+                }).catch((e)=>{
+                    console.error(e);
+                });
             });
         }
         return promiseRessources;

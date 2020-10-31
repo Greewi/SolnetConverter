@@ -8,3 +8,5 @@ config.json
 *.pdf
 *.mobi
 *.epub
+
+*.sh

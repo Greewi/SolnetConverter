@@ -132,6 +132,7 @@ const Section = class {
      * @returns {Promise<Section>} une Promise résolvant la section chargée
      */
     static chargeSection(racine, configSection) {
+        let subPath = configSection.source.replace(/[^\/\\]*$/,"");
         let source = configSection.source;
         let style = configSection.style;
         let texte = null;
@@ -146,7 +147,7 @@ const Section = class {
                 let regex = /\!\[[^\]]*\]\(([^)]+)\)/g;
                 let matches;
                 while ((matches = regex.exec(texte)) != null) {
-                    ressources.push(matches[1]);
+                    ressources.push(subPath+matches[1].replace(/%20/g, " "));
                 }
             }
         }).then(() => {

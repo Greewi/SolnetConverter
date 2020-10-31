@@ -76,6 +76,10 @@ img {
 
 /* Style des textes des articles */
 
+.article {
+    page-break-before: always;
+}
+
 .article h2 {
     font-family: 'Designer Block', Impact, sans-serif;
     text-align: center;
