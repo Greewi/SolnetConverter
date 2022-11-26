@@ -1,5 +1,5 @@
-const { CalibreCLI } = require("./calibreCLI");
-const fs = require('fs');
+import CalibreCLI from "./calibreCLI";
+import fs from 'fs';
 
 exports.HTML2EBOOK = class {
 

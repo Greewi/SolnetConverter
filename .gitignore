@@ -1,6 +1,6 @@
 .vscode/
 node_modules/
-package-lock\.json
+dist/
 tmp/
 output/
 config.json
@@ -8,5 +8,4 @@ config.json
 *.pdf
 *.mobi
 *.epub
-
 *.sh

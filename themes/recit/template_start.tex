@@ -1,0 +1,30 @@
+\documentclass[a5paper,9pt]{memoir}
+\usepackage{graphicx}
+\usepackage{epigraph}
+\usepackage{mdframed}
+\usepackage{pdfpages}
+\def\mytitle{%title%}
+\title{\mytitle}
+\author{%author%}
+
+\graphicspath{ {./} }
+
+% Define footer and header
+\makeoddfoot{plain}{}{}{\thepage} % Footer on chapter page
+\makepagestyle{pter} % New pagestyle
+\makeoddhead{pter}{}{}{\itshape\rightmark}
+\makeoddfoot{pter}{}{}{\thepage}
+\makeevenhead{pter}{\itshape\leftmark}{}{}
+\makeevenfoot{pter}{\thepage}{}{}
+\pagestyle{pter} % use the new style
+
+\raggedbottom % To avoid paragraph stretching to fill the pages
+
+\setcounter{tocdepth}{3}
+\renewcommand*\contentsname{Table des matières}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\includepdf{%cover%}
+\thispagestyle{empty}

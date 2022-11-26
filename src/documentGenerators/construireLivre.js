@@ -1,8 +1,8 @@
 const io = require("./src/io");
 const pdfParse = require("pdf-parse");
-const { WkHtmlToPdfCLI } = require("./src/wkhtmltopdfCLI");
+const { WkHtmlToPdfCLI } = require("./src/cli/wkhtmltopdfCLI");
 const { GhostscriptCLI } = require("./src/cli/ghostscriptCLI");
-const { CalibreCLI } = require("./src/calibreCLI");
+const { CalibreCLI } = require("./src/cli/calibreCLI");
 const { PDFTKCLI } = require("./src/cli/pdftkCLI");
 const Theme = require("./src/livres/theme").Theme;
 const Livre = require("./src/livres/livre").Livre;

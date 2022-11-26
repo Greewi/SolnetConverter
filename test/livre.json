@@ -1,0 +1,13 @@
+{
+    "title": "Solaires - Le dragon de Callisto",
+    "author": "Sylvain « Greewi » Dumazet",
+    "cover": "Couverture.png",
+    "description": "Roman de science-fiction",
+    "structure": [
+        {
+            "source": "Le dragon de Callisto.md",
+            "style": "recit",
+            "level": 1
+        }
+    ]
+}

@@ -1,7 +1,5 @@
 {
-    "calibre" : "C:\\Program Files\\Calibre2\\ebook-convert.exe",
-    "inkscape" : "C:\\Program Files\\Inkscape\\inkscape.exe",
-    "wkhtmltopdf" : "C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe",
-    "ghostscript" : "C:\\Program Files\\gs\\gs9.27\\bin\\gswin64.exe",
-    "pdftk" : "C:\\Program Files (x86)\\PDFtk Server\\bin\\pdftk.exe"
+    "calibre" : "ebook-convert",
+    "inkscape" : "inkscape",
+    "latex" : "lualatex"
 }
