@@ -20,31 +20,40 @@ export default class MD2Tex {
      */
     static convert(markdown: string): string {
         // Line segmentation
+        markdown = markdown.replace(/\r/g, "");
         let rawLines = markdown.split(/\n/);
         let lines : {type:string, text:string}[] = [];
         for (let line of rawLines) {
-            if (line.match(/^## /gm))
+            if (line.match(/^### /g))
+                lines.push({ type: "H3", text: line.substring(4).trim() });
+            else if (line.match(/^## /g))
                 lines.push({ type: "H2", text: line.substring(3).trim() });
-            else if (line.match(/^# /gm))
+            else if (line.match(/^# /g))
                 lines.push({ type: "H1", text: line.substring(2).trim() });
-            else if (line.match(/^\* /gm))
+            else if (line.match(/^\* /g))
                 lines.push({ type: "LI", text: line.substring(2).trim() });
-            else if (line.match(/^>$/gm))
+            else if (line.match(/^>>$/g))
                 lines.push({ type: "CITATION", text: "" });
-            else if (line.match(/^> /gm))
+            else if (line.match(/^>> /g))
                 lines.push({ type: "CITATION", text: line.substring(2).trim() });
-            else if (line.match(/^>> ### /gm))
-                lines.push({ type: "H3ENCART", text: line.substring(7).trim() });
-            else if (line.match(/^>> \* /gm))
-                lines.push({ type: "LIENCART", text: line.substring(5).trim() });
-            else if (line.match(/^>>$/gm))
+            else if (line.match(/^> ### /g))
+                lines.push({ type: "HEADERENCART", text: line.substring(6).trim() });
+            else if (line.match(/^> ## /g))
+                lines.push({ type: "HEADERENCART", text: line.substring(5).trim()});
+            else if (line.match(/^> # /g))
+                lines.push({ type: "HEADERENCART", text: line.substring(4).trim() });
+            else if (line.match(/^> \* /g))
+                lines.push({ type: "LIENCART", text: line.substring(4).trim() });
+            else if (line.match(/^>$/g))
                 lines.push({ type: "ENCART", text: "" });
-            else if (line.match(/^>> /gm))
-                lines.push({ type: "ENCART", text: line.substring(3).trim() });
+            else if (line.match(/^> /g))
+                lines.push({ type: "ENCART", text: line.substring(2).trim() });
             else if (line.trim().match(/^<.*>$/))
                 lines.push({ type: "HMTL", text: line });
             else if (line.trim().match(/^----$/))
                 lines.push({ type: "SAUTPAGE", text: "" });
+            else if (line.trim() == "***" || line.trim().match(/^[*]*FIN[*]*$/))
+                lines.push({ type: "CENTRE", text: line.trim()});
             else if (line.trim() == "")
                 lines.push({ type: "VIDE", text: "" });
             else
@@ -64,6 +73,9 @@ export default class MD2Tex {
                     break;
                 case "H2":
                     finalLines.push(`\\section*{${this._applyInlineStyles(line.text)}}\n\\addcontentsline{toc}{section}{${this._applyInlineStyles(line.text)}}\n\\markright{${this._applyInlineStyles(line.text)}}`);
+                    break;
+                case "H3":
+                    finalLines.push(`\\subsection*{${this._applyInlineStyles(line.text)}}\n\\addcontentsline{toc}{subsection}{${this._applyInlineStyles(line.text)}}\n\\markright{${this._applyInlineStyles(line.text)}}`);
                     break;
                 case "LI":
                     if (previousLine.type != "LI")
@@ -88,31 +100,33 @@ export default class MD2Tex {
                     if (nextLine.type != "CITATION")
                         finalLines.push(`}`);
                     break;
-                case "H3ENCART":
-                    finalLines.push(`\\begin{mdframed}[style=aside,frametitle={${this._applyInlineStyles(line.text)}}]`);
-                    if (nextLine.type != "ENCART" && nextLine.type != "H3ENCART" && nextLine.type != "LIENCART")
-                        finalLines.push(`\\end{mdframed}`);
+                case "HEADERENCART":
+                    finalLines.push(`\\begin{tcolorbox}[title={\\textbf{${this._applyInlineStyles(line.text)}}}]`);
+                    if (nextLine.type != "ENCART" && nextLine.type != "HEADERENCART" && nextLine.type != "LIENCART")
+                        finalLines.push(`\\end{tcolorbox}`);
                     break;
                 case "LIENCART":
-                    if (previousLine.type != "ENCART" && previousLine.type != "H3ENCART" && previousLine.type != "LIENCART")
-                        finalLines.push(`\\begin{mdframed}[style=aside]`);
+                    if (previousLine.type != "ENCART" && previousLine.type != "HEADERENCART" && previousLine.type != "LIENCART")
+                        finalLines.push(`\\begin{tcolorbox}[]`);
                     if (previousLine.type != "LIENCART")
-                        finalLines.push(`\\begin{itemize}`);
+                        finalLines.push(`\\begin{asideitemize}`);
                     finalLines.push(`\\item ${this._applyInlineStyles(line.text)}`);
                     if (nextLine.type != "LIENCART")
-                        finalLines.push(`\\end{itemize}`);
-                    if (nextLine.type != "ENCART" && nextLine.type != "H3ENCART" && nextLine.type != "LIENCART")
-                        finalLines.push(`\\end{mdframed}`);
+                        finalLines.push(`\\end{asideitemize}`);
+                    if (nextLine.type != "ENCART" && nextLine.type != "HEADERENCART" && nextLine.type != "LIENCART")
+                        finalLines.push(`\\end{tcolorbox}`);
                     break;
                 case "ENCART":
-                    if (previousLine.type != "ENCART" && previousLine.type != "H3ENCART" && previousLine.type != "LIENCART")
-                    finalLines.push(`\\begin{mdframed}[style=aside]`);
+                    if (previousLine.type != "ENCART" && previousLine.type != "HEADERENCART" && previousLine.type != "LIENCART")
+                    finalLines.push(`\\begin{tcolorbox}[]`);
                     if (previousLine.type != "ENCART")
                         finalLines.push(``);
                     finalLines.push(`${this._applyInlineStyles(line.text)}`);
-                    if (nextLine.type != "ENCART" && nextLine.type != "H3ENCART" && nextLine.type != "LIENCART")
-                        finalLines.push(`\\end{mdframed}`);
+                    if (nextLine.type != "ENCART" && nextLine.type != "HEADERENCART" && nextLine.type != "LIENCART")
+                        finalLines.push(`\\end{tcolorbox}`);
                     break;
+                case "CENTRE":
+                    finalLines.push(`{\n\\centering\n${line.text=="***"? line.text : this._applyInlineStyles(line.text)}\\par\n}`);
                 case "SAUTPAGE":
                     finalLines.push(`\\pagebreak`);
                     break;
@@ -134,13 +148,16 @@ export default class MD2Tex {
      * @returns the converted text
      */
     static _applyInlineStyles(text: string): string {
-        return text.replace("\\", "\\textbackslash")
-            .replace("{", "\\{")
-            .replace("}", "\\}")
-            .replace("#", "\\#")
-            .replace(/!\[([^\[]+)]\(([^(]+)\)/g,'\\includegraphics{$2}')
-            .replace(/\[([^\[]+)]\(([^(]+)\)/g,'\\href{$2}{$1}')
-            .replace(/\*\*([^ ][^\*]*[^ ]|[^*])\*\*/gm, "\\textbf{$1}")
-            .replace(/\*([^ ][^\*]*[^ ]|[^*])\*/gm, "\\textit{$1}");
+        return text
+            .replace(/`([^`]+)`|\\/g,(match, code)=>{
+                if(match=="\\")
+                    return "{\\textbackslash}";
+                code = code.replace(/([\[\]{}@])/g, "$1");
+                return `\\lstinline{${code}}`;
+            })
+            .replace(/!\[([^\[]+)]\(([^()]+)\)/g,'\\includegraphics{$2}')
+            .replace(/\[([^\[]+)]\(([^()]+)\)/g,'\\href{$2}{$1}')
+            .replace(/\*\*([^ ][^\*]*[^ ]|[^*])\*\*/g, "\\textbf{$1}")
+            .replace(/\*([^ ][^\*]*[^ ]|[^*])\*/g, "\\textit{$1}");
     };
 };

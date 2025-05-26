@@ -1,3 +1,4 @@
+import PreprocessorFactory from '../preprocessors/preprocessorFactory';
 import * as io from '../utils/io';
 
 export type BookConfig = {
@@ -11,7 +12,8 @@ export type BookConfig = {
 export type SectionConfig = {
     source: string,
     style: string,
-    level: number
+    level: number,
+    preprocessor: string[]|undefined
 };
 
 export default class Book {
@@ -124,9 +126,22 @@ export class Section {
         let source = sectionConfig.source;
         let style = sectionConfig.style;
         let level = sectionConfig.level;
-        let ressources = source.endsWith(".md") || source=="" ? [] : [source];
 
+        let ressources = source.endsWith(".md") || source=="" ? [] : [source];
         let text = await this._loadText(root, source);
+
+        // Apply preprocessors
+        if(sectionConfig.preprocessor) {
+            for(const preprocessor of sectionConfig.preprocessor) {
+                text = PreprocessorFactory.process(preprocessor, text);
+            }
+        }
+
+        // Converting title level
+        if(level==2)
+            text = PreprocessorFactory.process("headingdown", text);
+
+        // Extracting ressources
         let regex = /\!\[[^\]]*\]\(([^)]+)\)/g;
         let matches;
         while ((matches = regex.exec(text)) != null) {

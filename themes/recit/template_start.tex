@@ -1,15 +1,25 @@
 \documentclass[a5paper,9pt]{memoir}
 \usepackage{graphicx}
 \usepackage{epigraph}
-\usepackage{mdframed}
+\usepackage{tcolorbox}
 \usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+
+% METADATA
 \def\mytitle{%title%}
 \title{\mytitle}
 \author{%author%}
 
 \graphicspath{ {./} }
 
-% Define footer and header
+% PAGE LAYOUT
+\setlrmarginsandblock{2.0cm}{1.5cm}{*}
+\setulmarginsandblock{2.0cm}{2.0cm}{*}
+\checkandfixthelayout
+
+% HEADER AND FOOTER
 \makeoddfoot{plain}{}{}{\thepage} % Footer on chapter page
 \makepagestyle{pter} % New pagestyle
 \makeoddhead{pter}{}{}{\itshape\rightmark}
@@ -18,12 +28,27 @@
 \makeevenfoot{pter}{\thepage}{}{}
 \pagestyle{pter} % use the new style
 
-\raggedbottom % To avoid paragraph stretching to fill the pages
-
+% TABLE OF CONTENT
 \setcounter{tocdepth}{3}
 \renewcommand*\contentsname{Table des matières}
 
+% STYLIZATION
+\usepackage[hidelinks]{hyperref} % no more border around links
+\raggedbottom % To avoid paragraph stretching to fill the pages
 \renewcommand{\familydefault}{\sfdefault}
+\setlength{\parskip}{8pt}
+\setlist[itemize]{topsep=0pt}
+
+% ASIDE BOX
+\tcbset{%
+	leftrule=3mm,
+	colframe=black!40!white,
+	colback=black!5!white%,
+%	titlerule=0mm,
+%	colbacktitle=black!5!white
+}
+\newlist{asideitemize}{itemize}{1}
+\setlist[asideitemize,1]{label=\textbullet,leftmargin=5pt,topsep=0pt}
 
 \begin{document}
 \includepdf{%cover%}
