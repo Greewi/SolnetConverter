@@ -1,5 +1,6 @@
 import HTML2MD from "./converters/html2md";
 import MD2Creole from "./converters/md2creole";
+import MD2FVTT from "./converters/md2fvtt";
 import MD2HTML from "./converters/md2html";
 import MD2Tex from "./converters/md2tex";
 import CommandHelper from "./utils/commandHelper";
@@ -32,6 +33,11 @@ const destPath = cmd.get("DEST");
         else if(sourcePath.endsWith(".md") && destPath.endsWith(".html"))
         {
             await MD2HTML.convertFile(sourcePath, destPath);
+        }
+        // MD -> FVTT HTML
+        else if(sourcePath.endsWith(".md") && destPath.endsWith(".fvtt.html"))
+        {
+            await MD2FVTT.convertFile(sourcePath, destPath);
         }
         // MD -> Tex
         else if(sourcePath.endsWith(".md") && destPath.endsWith(".tex"))

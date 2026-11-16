@@ -119,9 +119,10 @@ export default class MD2Tex {
                 case "ENCART":
                     if (previousLine.type != "ENCART" && previousLine.type != "HEADERENCART" && previousLine.type != "LIENCART")
                     finalLines.push(`\\begin{tcolorbox}[]`);
-                    if (previousLine.type != "ENCART")
-                        finalLines.push(``);
-                    finalLines.push(`${this._applyInlineStyles(line.text)}`);
+                    if( line.text.trim()=="" && (previousLine.type == "ENCART" || previousLine.type == "LIENCART"))
+                        finalLines.push("\n \n");
+                    else
+                        finalLines.push(`${this._applyInlineStyles(line.text)}`);
                     if (nextLine.type != "ENCART" && nextLine.type != "HEADERENCART" && nextLine.type != "LIENCART")
                         finalLines.push(`\\end{tcolorbox}`);
                     break;
@@ -133,7 +134,7 @@ export default class MD2Tex {
                 case "VIDE":
                     break;
                 default:
-                    finalLines.push(line.text);
+                    finalLines.push(this._applyInlineStyles(line.text));
             }
         }
 
@@ -149,6 +150,7 @@ export default class MD2Tex {
      */
     static _applyInlineStyles(text: string): string {
         return text
+            .replace(/<!--[^>]*-->/g, "")
             .replace(/`([^`]+)`|\\/g,(match, code)=>{
                 if(match=="\\")
                     return "{\\textbackslash}";
@@ -158,6 +160,7 @@ export default class MD2Tex {
             .replace(/!\[([^\[]+)]\(([^()]+)\)/g,'\\includegraphics{$2}')
             .replace(/\[([^\[]+)]\(([^()]+)\)/g,'\\href{$2}{$1}')
             .replace(/\*\*([^ ][^\*]*[^ ]|[^*])\*\*/g, "\\textbf{$1}")
-            .replace(/\*([^ ][^\*]*[^ ]|[^*])\*/g, "\\textit{$1}");
+            .replace(/\*([^ ][^\*]*[^ ]|[^*])\*/g, "\\textit{$1}")
+            .replace(/([%])/g, "\\$1");
     };
 };
